@@ -32,8 +32,8 @@ python -m unittest test_flow_log_parser.py
 ```
 This will validate that logs are processed correctly and that the output is as expected.
 
-## What We Tested
-We conducted several tests to make sure the parser works reliably:
+## What Was Tested
+The parser was tested thoroughly to ensure its reliability:
 - **Valid log entries:** Ensured correctly formatted logs are processed as expected.
 - **Invalid log entries:** Verified that malformed or incomplete logs are skipped.
 - **Empty log file:** Checked that an empty file does not cause errors.
