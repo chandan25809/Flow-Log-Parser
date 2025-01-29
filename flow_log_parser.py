@@ -94,7 +94,7 @@ class FlowLogParser:
                     if len(row)!=3:
                         continue #skip invalid row
                     dstport,protocol,tag = map(str.strip, row)
-                    # Skip ivalid rows
+                    # Skip invalid rows
                     if not dstport or not protocol or not tag or (not dstport.isdigit() and dstport != "0"):
                         continue  
 
