@@ -95,8 +95,9 @@ class FlowLogParser:
                         continue #skip invalid row
                     dstport,protocol,tag = map(str.strip, row)
                     # Skip rows where dstport is missing or not numeric**
-                    if not dstport or (not dstport.isdigit() and dstport != "0"):  
+                    if not dstport or not protocol or not tag or (not dstport.isdigit() and dstport != "0"):
                         continue  
+
                     self.lookup_table[(dstport.strip(),protocol.lower().strip())] = tag.strip()
         except Exception as e:
             print(f"Error reading lookup file: {e}")
@@ -142,7 +143,7 @@ class FlowLogParser:
             file.write(f"{port},{protocol},{count}\n")
 
 if __name__ == "__main__":
-    
+
     log_file = "flow_logs.txt"
     lookup_file = "lookup_table.csv"
     output_file = "output_results.txt"
